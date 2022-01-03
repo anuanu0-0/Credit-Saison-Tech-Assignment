@@ -1,0 +1,45 @@
+- Create a web page that will accept a string of numbers in an input box and a submit button
+- Make an entry for every search string in a database
+- On submit, post to to API_1 which will display details of their card, This API will fetch details
+    from the endpoint available here https://binlist.net/ .
+ Display below results on the page
+    Card number  valid/not valid the scheme (i.e VISA, MASTERCARD or AMEX) the bank when it is available
+    Sample response:
+        GET /card-scheme/verify/234564562....
+         {
+           "success": true
+           "payload" : {
+                "scheme": "visa",
+                "type" : "debit",
+                "bank" : "UBS"
+         }
+        }
+
+On same page, show another button called ‘statistics’
+    - On submit of this button, do a GET to API_2 of your application which will display:
+        - The list of unique strings submitted to API_1, and the number of hits for a particular string.
+        - Also show the first and latest timeStamp for each hit of a string to API_1
+
+        Sample response:
+        GET /card-scheme/stats
+        {
+          "success": true
+          "payload": [
+            {"search_query": 54, "hits:1},
+            {"search_query": 535565, "hits”:2},
+            {"search_query": 2534344, "hits”:5},
+          ]
+        }
+
+
+
+Create a repository on github for code and make frequent commits as you develop your API.
+Essentially we will look at these things post your assignment submission;
+Knowledge of DB’s
+Knowledge of language
+Knowledge of rest services
+Ability to use git or some other code version tool
+Host the application on some cloud infra
+Try to show your OOP skills
+Code standards/clean code
+Think of necessary optimisations to save on any of API hits
