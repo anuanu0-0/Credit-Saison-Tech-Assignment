@@ -4,6 +4,7 @@ import com.example.creditsaisonassignment.exchanges.GetCardNumberRequest;
 import com.example.creditsaisonassignment.exchanges.GetCardResponse;
 import com.example.creditsaisonassignment.exchanges.GetCardStatsResponse;
 import com.example.creditsaisonassignment.services.BinServiceProvider;
+import com.example.creditsaisonassignment.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +22,11 @@ public class CardController {
 
     public static final String BIN_CARD_NUM_API = "/{cardNumber}";
 
-    private final BinServiceProvider binServiceProvider;
+    private final CardService cardService;
 
     @Autowired
-    public CardController(BinServiceProvider binServiceProvider) {
-        this.binServiceProvider = binServiceProvider;
+    public CardController(CardService cardService) {
+        this.cardService = cardService;
     }
 
     /**
@@ -36,7 +37,7 @@ public class CardController {
 
     @GetMapping(BIN_VERIFY_API + BIN_CARD_NUM_API)
     public ResponseEntity<GetCardResponse> getCardDetails(GetCardNumberRequest getCardNumber) {
-        return new ResponseEntity(binServiceProvider.getBinService("45717360"), HttpStatus.OK);
+        return new ResponseEntity( cardService.getCardDetails(getCardNumber.getCardNumber()), HttpStatus.OK);
     }
 
     /**
@@ -45,6 +46,7 @@ public class CardController {
      * **/
     @GetMapping(BIN_STATS_API)
     public ResponseEntity<GetCardStatsResponse> getCardStats() {
+        GetCardStatsResponse getCardStatsResponse;
         return null;
     }
 }
