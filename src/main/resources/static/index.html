@@ -6,31 +6,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="style.js"></script>
 
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-<!--    -->
-
 </head>
 <body>
-
-<!--    <form action="/card-scheme/verify" class="search-bar">-->
-<!--        <input type="search" name="q" pattern=".*\S.*" required>-->
-<!--        <button class="search-btn" type="submit">-->
-<!--            <span>Search</span>-->
-<!--        </button>-->
-<!--    </form>-->
-    <div class="search-bar">
-        <input type="text" method="put" id="search" placeholder="Search" value="">
-        <input type='submit' onclick="callAPI1();" class="search-btn"/>
+    <br>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" method="put" id="search" placeholder="Search" value="">
+            <input type='submit' onclick="callAPI1();" class="search-btn"/>
+        </div>
+        <br>
+        <button class="search-btn" type="submit"  onclick="callAPI2()">
+            <span>Statistics</span>
+        </button>
     </div>
-
-<!--<div class="search-bar">-->
-<!--<input type='submit' text="Statistics" onclick="callAPI2();" class="search-btn"/>-->
-<!--</div>-->
-
-    <button class="search-btn" type="submit"  onclick="callAPI2()">
-        <span>Statistics</span>
-    </button>
 </body>
 </html>
 

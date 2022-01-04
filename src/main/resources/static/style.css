@@ -1,0 +1,30 @@
+/*.container {*/
+/*    font-family: arial;*/
+/*    font-size: 24px;*/
+/*    margin: 25px;*/
+/*    width: 350px;*/
+/*    height: 200px;*/
+/*    !* Setup *!*/
+/*    position: relative;*/
+/*}*/
+
+/*.search-bar {*/
+/*    display: flex;*/
+/*    align-items: stretch;*/
+/*    background-color: #f1f1f1;*/
+/*}*/
+
+/*.search-bar > div {*/
+/*    !*background-color: DodgerBlue;*!*/
+/*    color: white;*/
+/*    margin: 10px;*/
+/*    text-align: center;*/
+/*    line-height: 75px;*/
+/*    font-size: 30px;*/
+/*}*/
+
+/*.search {*/
+/*    width: 100%;*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*}*/
