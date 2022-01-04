@@ -1,6 +1,6 @@
 Frontend :
     1.Create a web page that accepts a string of numbers in an input box and sends to the backend.
-    2. 
+    2.Create a second button for card statistics.
 Backend :
     1. For every String:Number received from frontend make a call to the API provider (binlist.net)
     2. Store every string and their hit count as well as first hit timestamp and last hit timestamp.

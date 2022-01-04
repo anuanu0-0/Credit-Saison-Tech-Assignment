@@ -1,6 +1,5 @@
 package com.example.creditsaisonassignment.dto;
 
-import com.example.creditsaisonassignment.dto_dummy.Bank;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 

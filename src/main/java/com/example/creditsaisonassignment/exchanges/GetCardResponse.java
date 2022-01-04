@@ -1,7 +1,6 @@
 package com.example.creditsaisonassignment.exchanges;
 
 import com.example.creditsaisonassignment.dto.Card;
-import com.example.creditsaisonassignment.dto_dummy.Bank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -10,5 +9,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class GetCardResponse {
+    Boolean success;
     Card card;
 }

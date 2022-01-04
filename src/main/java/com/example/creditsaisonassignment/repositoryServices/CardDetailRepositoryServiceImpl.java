@@ -4,7 +4,6 @@ import com.example.creditsaisonassignment.dto.Card;
 import com.example.creditsaisonassignment.models.CardEntity;
 import com.example.creditsaisonassignment.models.CardStatsEntity;
 import com.example.creditsaisonassignment.repository.CardRepository;
-import com.example.creditsaisonassignment.services.BinServiceProviderImpl;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,14 +14,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CardRepositoryServiceImpl implements CardRepositoryService{
+public class CardDetailRepositoryServiceImpl implements CardDetailRepositoryService {
     private final ModelMapper modelMapper;
     private final CardRepository cardRepository;
-    private static final Logger log = LoggerFactory.getLogger(BinServiceProviderImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(CardDetailRepositoryServiceImpl.class);
 
 
     @Autowired
-    public CardRepositoryServiceImpl(ModelMapper modelMapper, CardRepository cardRepository) {
+    public CardDetailRepositoryServiceImpl(ModelMapper modelMapper, CardRepository cardRepository) {
         this.modelMapper = modelMapper;
         this.cardRepository = cardRepository;
     }
@@ -39,13 +38,6 @@ public class CardRepositoryServiceImpl implements CardRepositoryService{
         return null;
     }
 
-    /**
-     * Get all the cards which where previously searched along with their statistics
-     * */
-    @Override
-    public List<CardStatsEntity> getCardStatsList() {
-        return null;
-    }
 
     /**
      * Return if the searched card already exists in the repository

@@ -1,10 +1,14 @@
 package com.example.creditsaisonassignment.controller;
 
+import com.example.creditsaisonassignment.exceptions.CardServiceException;
 import com.example.creditsaisonassignment.exchanges.GetCardNumberRequest;
 import com.example.creditsaisonassignment.exchanges.GetCardResponse;
 import com.example.creditsaisonassignment.exchanges.GetCardStatsResponse;
-import com.example.creditsaisonassignment.services.BinServiceProvider;
-import com.example.creditsaisonassignment.services.CardService;
+import com.example.creditsaisonassignment.services.CardDetailService;
+import com.example.creditsaisonassignment.services.CardStatsService;
+import com.example.creditsaisonassignment.services.CardStatsServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +26,16 @@ public class CardController {
 
     public static final String BIN_CARD_NUM_API = "/{cardNumber}";
 
-    private final CardService cardService;
+    private final CardDetailService cardDetailService;
+    private final CardStatsService cardStatsService;
+
+    private static final Logger log = LoggerFactory.getLogger(CardController.class);
+
 
     @Autowired
-    public CardController(CardService cardService) {
-        this.cardService = cardService;
+    public CardController(CardDetailService cardDetailService, CardStatsService cardStatsService) {
+        this.cardDetailService = cardDetailService;
+        this.cardStatsService = cardStatsService;
     }
 
     /**
@@ -36,8 +45,19 @@ public class CardController {
      * **/
 
     @GetMapping(BIN_VERIFY_API + BIN_CARD_NUM_API)
-    public ResponseEntity<GetCardResponse> getCardDetails(GetCardNumberRequest getCardNumber) {
-        return new ResponseEntity( cardService.getCardDetails(getCardNumber.getCardNumber()), HttpStatus.OK);
+    public ResponseEntity<GetCardResponse> getCardDetails(GetCardNumberRequest getCardNumber) throws CardServiceException {
+        String cardNumber = getCardNumber.getCardNumber();
+        cardStatsService.saveCardStats(cardNumber);
+        GetCardResponse getCardResponse = cardDetailService.getCardDetails(cardNumber);
+//        if(getCardResponse == null) {
+//            log.info("----------------------------------------");
+//            log.info("Bad request - 400");
+//            getCardResponse.setSuccess(false);
+//            getCardResponse.setCard(null);
+//        } else {
+//            getCardResponse.setSuccess(true);
+//        }
+        return new ResponseEntity( getCardResponse, HttpStatus.OK);
     }
 
     /**
@@ -46,7 +66,9 @@ public class CardController {
      * **/
     @GetMapping(BIN_STATS_API)
     public ResponseEntity<GetCardStatsResponse> getCardStats() {
-        GetCardStatsResponse getCardStatsResponse;
-        return null;
+        log.info("--------------------------------------------");
+        log.info(" Get Bin Statistics");
+        GetCardStatsResponse getCardStatsResponse = cardStatsService.getStatistics();
+        return new ResponseEntity(getCardStatsResponse, HttpStatus.OK);
     }
 }
