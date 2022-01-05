@@ -5,20 +5,26 @@
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
     <script src="style.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-    <br>
-    <div class="container">
-        <div class="search-bar">
-            <input type="text" method="put" id="search" placeholder="Search" value="">
-            <input type='submit' onclick="callAPI1();" class="search-btn"/>
+
+    <h1> CARD API </h1>
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" method="put" id="search" placeholder="Search" value="">
+            <button id="sbtn" type="submit" class="searchButton" onclick="callAPI1()">
+                <i class="fa fa-search"></i>
+            </button>
         </div>
-        <br>
-        <button class="search-btn" type="submit"  onclick="callAPI2()">
-            <span>Statistics</span>
-        </button>
+        <div class="stats-btn">
+            <button id="btn" type="submit" onclick="callAPI2()">
+                <span>Statistics</span>
+            </button>
+        </div>
     </div>
+
 </body>
 </html>
 

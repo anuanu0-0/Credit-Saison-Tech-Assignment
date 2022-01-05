@@ -8,3 +8,12 @@ Backend :
         * One will get string:Num from frontend and use GET method to get data from the API Provider.
         * Another button on webpage named 'statistics' will call 2nd GET API which will get the unique strings 
             submitted to 1st API + No. of hits + Timestamps.
+
+
+
+LEFT : 
+1. Page styling - CSS
+2. Integrate DOcker
+3. Unit testing
+4. Deploy Application
+5. API Documentation

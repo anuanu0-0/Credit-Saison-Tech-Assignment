@@ -10,3 +10,4 @@ function callAPI1(){
 function callAPI2(){
     location.href = "/card-scheme/stats/";
 }
+

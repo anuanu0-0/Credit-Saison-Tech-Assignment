@@ -43,20 +43,11 @@ public class CardController {
      * @param getCardNumber valid card number
      * @return GetCardResponse object containing a payload object consisting of scheme, type and bank name.
      * **/
-
     @GetMapping(BIN_VERIFY_API + BIN_CARD_NUM_API)
     public ResponseEntity<GetCardResponse> getCardDetails(GetCardNumberRequest getCardNumber) throws CardServiceException {
         String cardNumber = getCardNumber.getCardNumber();
         cardStatsService.saveCardStats(cardNumber);
         GetCardResponse getCardResponse = cardDetailService.getCardDetails(cardNumber);
-//        if(getCardResponse == null) {
-//            log.info("----------------------------------------");
-//            log.info("Bad request - 400");
-//            getCardResponse.setSuccess(false);
-//            getCardResponse.setCard(null);
-//        } else {
-//            getCardResponse.setSuccess(true);
-//        }
         return new ResponseEntity( getCardResponse, HttpStatus.OK);
     }
 
